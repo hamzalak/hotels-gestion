@@ -1,0 +1,75 @@
+<body class="body">
+<div *ngIf="nomHotel!='default'; else mess" [hidden]="submit">
+  <p style="margin-left : 50px ; "> {{nomHotel}} </p>
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Numero de chambre</th>
+        <th scope="col">Date de disponibilité</th>
+        <th scope="col">Prix</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ro of meRooms">
+
+        <!--<th scope="row">1</th>-->
+        <td> {{ro.id}}</td>
+        <td>{{ro.dateDispo}}</td>
+        <td>{{ro.prix | currency : 'EUR' : 'symbol' : '1.2-2'}}</td>
+        <td><button type="button" class="btn btn-outline-light" (click)="showActual(ro.id)">Actualiser</button></td>
+        <td><button type="button" class="btn btn-outline-light" (click)="suppression(ro.id)">supprimer</button> </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="showAjout()">Ajouter</button>
+</div>
+
+<!--********************************************************-->
+<!--   Suppression réussi   -->
+
+<div [hidden]="suSubmit">
+  <a routerLink="">Suppression Réussi </a>
+</div>
+
+<!--********************************************************-->
+<!--    Partie abscence de valeur   -->
+<ng-template #mess>
+  <a routerLink="">Aucun Hotel n'a été choisi veuillez revenir à l'accueille ! </a>
+</ng-template>
+<!--********************************************************-->
+<!--    Partie pour l'ajout des rooms   -->
+
+<div [hidden]="submitAjout">
+  <form class="fru" name="hotel" (ngSubmit)="submitRoom()">
+    {{nomHotel}}
+    <hr style="width: 95% ;"> <br> <br>
+    <mat-form-field class="mtf">
+      <input matInput type="text" name="prix" [(ngModel)]="room.prix" placeholder="prix">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="date" name="date" [(ngModel)]="room.dateDispo" placeholder="dispo">
+    </mat-form-field>
+    <br> <br> <br>
+    <button mat-button type="submit" class="bt"> Enregistrer </button>
+  </form>
+</div>
+<!--********************************************************-->
+<!--    Partie pour l'actualisation   -->
+
+<div [hidden]="submitActu">
+  <form class="fru" name="hotel" (ngSubmit)="actualisation()">
+    Acualiser la chambre numero {{idActu}} Pour L'hotel {{nomHotel}}
+    <hr style="width: 95% ;"> <br> <br>
+    <mat-form-field class="mtf">
+      <input matInput type="text" name="prix" [(ngModel)]="room.prix" placeholder="prix">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="date" name="date" [(ngModel)]="room.dateDispo" placeholder="dispo">
+    </mat-form-field>
+    <br> <br> <br>
+    <button mat-button type="submit" class="bt"> Enregistrer </button>
+  </form>
+</div>
+</body>

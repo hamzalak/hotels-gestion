@@ -1,0 +1,48 @@
+<div class="grid-container" [hidden]="cover">
+  <h1 class="mat-h1">Liste des Hotels</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="toUpdateHotel(card.objet.id, card.objet.nom)">Actualiser l'hotel</button>
+              <button mat-menu-item (click)="provideHotelIdAndName(card.objet.id,card.objet.nom)" routerLink="rooms">List des Chambres</button>
+              <button mat-menu-item (click)="deleteHotel(card.objet.id)">Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <p *ngIf="card.objet.manager != null">Manager : {{card.objet.manager.firstName}} {{card.objet.manager.lasstName}} </p>
+            <p *ngIf="card.objet.manager === null">Manager : No Manager at the moment </p>
+            <p> addresse : {{card.objet.adresse}} </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <router-outlet></router-outlet>
+</div>
+<div class="grid-container" [hidden]="!cover">
+  <form class="fru" name="hotel" (ngSubmit)="upDate()">
+    <!-- le dieze pour créer la variable mais pour l'utiliser on enlève le dieze -->
+     Actualiser L'hotel {{nom}}
+    <hr style="width: 95% ;"> <br> <br>
+    <mat-form-field class="mtf">
+      <input matInput type="text" name="nom" [(ngModel)]="hotel.nom" placeholder="Nom d'Hotel">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text" name="adresse" [(ngModel)]="hotel.adresse" placeholder="Adresse">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text" name="stars" [(ngModel)]="hotel.stars" placeholder="stars">
+    </mat-form-field>
+    <br> <br> <br>
+    <button mat-button type="submit" class="bt"> Envoyer </button>
+  </form>
+</div>

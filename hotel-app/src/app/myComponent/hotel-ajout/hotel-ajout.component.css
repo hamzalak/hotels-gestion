@@ -1,0 +1,28 @@
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+.bt{
+  float : right ;
+  margin-right: 100px ;
+  background-color:  #e8d3ff ;
+}
+.body{
+
+  background-color : #eeeeee ;
+
+}
+.divAjout{
+
+   margin-bottom: 80px ;
+}
+
+.fru{
+  border-radius: 20px ;
+  margin-top: 20px ;
+  margin-left: 40px ;
+}
+.mtf{
+  margin-right: 60px ;
+  border-width: thin;
+
+}

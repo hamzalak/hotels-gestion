@@ -1,0 +1,44 @@
+
+<body class="body">
+
+<div class="divAjout">
+
+  <form   class="fru" name="hotel" (ngSubmit)="onSubmit()">  <!-- le dieze pour créer la variable mais pour l'utiliser on enlève le dieze -->
+  Hotel
+    <hr style="width: 95% ;">  <br> <br>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="nom" [(ngModel)]="hotel.nom" placeholder="Nom d'Hotel">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="adresse" [(ngModel)]="hotel.adresse" placeholder="Adresse">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="stars" [(ngModel)]="hotel.stars" placeholder="stars">
+    </mat-form-field>
+    <br> <br> <br>
+    Manager
+    <hr style="width: 95% ;">  <br> <br>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="lastName" [(ngModel)]="manager.lastName" placeholder="Nom">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="firstName" [(ngModel)]="manager.firstName" placeholder="Prénom">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="age" [(ngModel)]="manager.age" placeholder="Age">
+    </mat-form-field>
+    <br> <br> <br>
+    Toute Première Chambre
+    <hr style="width: 95% ;">  <br> <br>
+    <mat-form-field class="mtf">
+      <input matInput type="date"  name="dateDispo" [(ngModel)]="room.dateDispo" placeholder="Date de Dispo">
+    </mat-form-field>
+    <mat-form-field class="mtf">
+      <input matInput type="text"  name="prix" [(ngModel)]="room.prix" placeholder="prix">
+    </mat-form-field>
+    <br> <br> <br>
+    <button  mat-button type="submit"  class="bt"> Enregistrer </button>
+  </form>
+</div>
+</body>
+

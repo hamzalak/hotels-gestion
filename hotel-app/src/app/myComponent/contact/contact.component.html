@@ -1,0 +1,25 @@
+<div class="container">
+  <h3> Contactez Nous </h3>
+</div>
+<br> <br>
+
+<form class="ter" name="myContact" method="post" (ngSubmit)="onSubmit()" style="margin : auto ; width : 95% ; ">
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Votre addresse Mail</label>
+    <input type="email" class="form-control" [(ngModel)]="myContact.email" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Votre Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="myContact.text" name="text" rows="3"></textarea>
+  </div>
+  <br> <br> 
+  <button mat-button type="submit" class="bt"> Envoyer </button>
+</form>
+
+<div [hidden]="showSuccess">
+  
+      <div class="container"> Message envoyé avec succée </div>
+      
+</div>
+
+

@@ -1,0 +1,20 @@
+<body class="body">
+  <form>
+  <div class="form-group">
+    <input type="email" class="form-control"  [formControl]="searchTerme"  placeholder="search">
+  </div>
+</form>
+<br><br>
+<div *ngIf="result.length> 0">
+  <mat-card *ngFor="let r of result">
+    <mat-card-content>
+      <p>
+        <span>Nom : {{r.nom}}</span>  <span class="search">adresse : {{r.adresse}}</span>
+      </p>
+    </mat-card-content>
+   <br>
+   <hr>
+   <br>
+  </mat-card>
+</div>
+</body>

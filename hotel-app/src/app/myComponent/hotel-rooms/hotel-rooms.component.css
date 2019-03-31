@@ -1,0 +1,34 @@
+.body{
+
+background: #eeeeee ;
+
+}
+.btn-block{
+ width : 70% ;
+ margin-top : 0px ;
+  margin-left: 50px ;
+}
+.bt{
+   background-color:  #e8d3ff ;
+}
+
+.fru{
+
+  border-radius: 20px ;
+  margin-top: 20px ;
+  margin-left: 40px ;
+}
+
+.mtf{
+  margin-right: 60px ;
+  border-width: thin;
+
+}
+
+.table{
+ margin-top: 50px ;
+ margin-bottom: 0px ;
+ margin-left: 50px ;
+ width : 70% ;
+
+}
